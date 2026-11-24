@@ -18,7 +18,7 @@ void troca(Pokemon *vetor, Metricas *ptr, int i, int j) {
 }
 
 // Regra de ordenação: menor poder primeiro, empate desempata pelo menor número na Pokédex
-static int desempate(Pokemon a, Pokemon b) {
+int desempate(Pokemon a, Pokemon b) {
     if (a.pt_poder != b.pt_poder) {
         return a.pt_poder < b.pt_poder;
     }
