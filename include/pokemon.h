@@ -6,11 +6,11 @@
 
 // Estrutura que representa um Pokémon
 typedef struct {
-    int id;                       // Identificador único do Pokémon na execução
+    int id;                       // Identificador do pokemon
     int numero_pokedex;           // Número correspondente na Pokédex
-    char nome[TAMANHO_NOME];      // Nome do Pokémon
-    char tipo[TAMANHO_TIPO];      // Tipo (ex: Fogo, Água, etc.)
-    int pt_poder;                 // Pontos de poder do Pokémon
+    char nome[TAMANHO_NOME];      // Nome do pokemon
+    char tipo[TAMANHO_TIPO];      // Tipo
+    int pt_poder;                 // Pontos de poder do pokemon
 } Pokemon;
 
 // Atribui os valores aos campos do Pokémon

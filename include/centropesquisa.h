@@ -1,15 +1,16 @@
 #ifndef CENTROPESQUISA_H
 #define CENTROPESQUISA_H
-#include "pokemon.h"
 
+#include "pokelista.h"
+
+// TAD que gerencia os Pokémons recuperados usando PokeLista
 typedef struct {
-    Pokemon *recuperados;
-    int qtd_recuperados;
-    int capacidade;
+    PokeLista recuperados;
 } CentroPesquisa;
 
 int inicializa_centro(CentroPesquisa *cpesq, int capacidade_max);
 int insere_recuperado(CentroPesquisa *cpesq, Pokemon pk);
+void imprime_recuperados(CentroPesquisa *cpesq);
 void libera_centro(CentroPesquisa *cpesq);
 
 #endif
