@@ -3,6 +3,7 @@
 
 #include "pokemon.h"
 
+// Armazena contadores de desempenho dos algoritmos
 typedef struct {
     long long comparacoes;
     long long movimentacoes;
