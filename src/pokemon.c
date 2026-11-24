@@ -3,13 +3,12 @@
 #include "pokemon.h"
 
 // Define todos os dados do Pokémon passado por ponteiro
-int set(Pokemon *pk, int id, int numero, char *name, char *type, int pt_poder, int energia_gasta) {
+int set(Pokemon *pk, int id, int numero, char *name, char *type, int pt_poder) {
     pk->id = id;
     pk->numero_pokedex = numero;
     strcpy(pk->nome, name);
     strcpy(pk->tipo, type);
     pk->pt_poder = pt_poder;
-    pk->energia_gasta = energia_gasta;
 
     return 0;
 }
@@ -39,12 +38,15 @@ int get_pt_poder(Pokemon *pk) {
     return pk->pt_poder;
 }
 
-// Retorna a energia gasta pra capturar o Pokémon
-int get_energia_gasta(Pokemon *pk) {
-    return pk->energia_gasta;
-}
-
 // Exibe na tela o nome do Pokémon
 void imprime_pokemon(Pokemon *pk) {
     printf("Pokémon alvo: %s\n", pk->nome);
+}
+
+// Percorre e imprime todos os Pokémons de um vetor
+void imprime_vetor(Pokemon *vetor, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("ID: %d | Nome: %s | Tipo: %s | Poder: %d\n", 
+               vetor[i].id, vetor[i].nome, vetor[i].tipo, vetor[i].pt_poder);
+    }
 }

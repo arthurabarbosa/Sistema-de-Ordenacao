@@ -21,62 +21,6 @@ int insere_lista(PokeLista *lista, Pokemon p) {
     return 0;
 }
 
-// Remove o Pokémon correspondente ao ID informado
-int remove_lista(PokeLista *lista, int id) {
-    // Caso a lista esteja vazia
-    if (lista->primeiro == lista->ultimo) {
-        return 0; 
-    }
-
-    Celula *anterior = lista->primeiro;
-    Celula *atual = lista->primeiro->prox;
-
-    // Busca a célula que possui o ID fornecido
-    while (atual != NULL && atual->poke.id != id) {
-        anterior = atual;
-        atual = atual->prox;
-    }
-
-    // ID não encontrado
-    if (atual == NULL) {
-        return 0;
-    }
-
-    // Ajusta os ponteiros para desvincular o nó
-    anterior->prox = atual->prox;
-    
-    // Se o elemento removido for o último, atualiza o ponteiro 'ultimo'
-    if (atual == lista->ultimo) {
-        lista->ultimo = anterior;
-    }
-
-    free(atual); // Libera a memória desalocada
-
-    return 1;
-}
-
-// Busca e retorna os dados do Pokémon com determinado ID
-Pokemon busca_lista(PokeLista *lista, int id) {
-    Pokemon nao_encontrado;
-    nao_encontrado.id = ID_INVALIDO; // Retorno para indicar falha
-
-    if (lista->primeiro == lista->ultimo) {
-        return nao_encontrado;
-    }
-
-    Celula *atual = lista->primeiro->prox;
-
-    while (atual != NULL) {
-        if (atual->poke.id == id) {
-            return atual->poke;
-        }
-        atual = atual->prox;
-    }
-
-    return nao_encontrado;
-}
-
-// Percorre e imprime os dados de cada Pokémon da lista
 int imprime_lista(PokeLista *lista) {
     if (lista->primeiro == lista->ultimo) {
         return 0;
@@ -84,10 +28,29 @@ int imprime_lista(PokeLista *lista) {
     Celula *atual = lista->primeiro->prox;
 
     while (atual != NULL) {
-        printf("ID: %d | Nome: %s | Tipo: %s | Poder: %d | Energia: %d\n", atual->poke.id, atual->poke.nome, atual->poke.tipo, atual->poke.pt_poder, atual->poke.energia_gasta);
-        
+        printf("ID: %d | Nome: %s | Tipo: %s | Poder: %d\n", 
+               atual->poke.id, atual->poke.nome, atual->poke.tipo, atual->poke.pt_poder);
         atual = atual->prox; 
     }
 
     return 1;
+}
+
+Pokemon* converte_encad_vetor(PokeLista *pokemons, int n) {
+    Pokemon *vetor = (Pokemon *) malloc(n * sizeof(Pokemon));
+    if (vetor == NULL) return NULL;
+
+    Celula *no = pokemons->primeiro->prox;
+    for (int i = 0; i < n && no != NULL; i++) {
+        vetor[i] = no->poke;
+        no = no->prox;
+    }
+    return vetor;
+}
+
+void imprime_vetor(Pokemon *vetor, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("ID: %d | Nome: %s | Tipo: %s | Poder: %d\n", 
+               vetor[i].id, vetor[i].nome, vetor[i].tipo, vetor[i].pt_poder);
+    }
 }

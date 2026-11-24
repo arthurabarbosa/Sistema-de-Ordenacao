@@ -15,19 +15,10 @@ typedef struct {
     Celula* ultimo;   // Ponteiro para o último elemento da lista
 } PokeLista;
 
-// Inicializa a lista encadeada criando o nó cabeça
 int inicializa_lista(PokeLista *lista);
-
-// Insere um Pokémon no final da lista
 int insere_lista(PokeLista *lista, Pokemon p);
-
-// Remove um Pokémon da lista com base no seu ID
-int remove_lista(PokeLista *lista, int id);
-
-// Procura um Pokémon pelo ID e retorna uma cópia dele
-Pokemon busca_lista(PokeLista *lista, int id);
-
-// Imprime todos os elementos da lista
 int imprime_lista(PokeLista *lista);
+Pokemon* converte_encad_vetor(PokeLista *pokemons, int n);
+void imprime_vetor(Pokemon *vetor, int n);
 
 #endif
