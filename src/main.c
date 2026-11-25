@@ -3,7 +3,6 @@
 #include "pokelista.h"
 #include "centropesquisa.h"
 #include "dadosentrada.h"
-#include "ordenacao.h"
 
 int main() {
     DadosEntrada dadosbubble;
