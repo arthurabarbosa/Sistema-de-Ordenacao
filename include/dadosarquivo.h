@@ -1,6 +1,5 @@
 #ifndef DADOSARQUIVO_H
 #define DADOSARQUIVO_H
-#define MS_POR_SEGUNDO 1000.0
 #define ARQUIVO_ENTRADA_PADRAO "arquivo.txt"
 #define ARQUIVO_SAIDA_PADRAO "saida.txt"
 
