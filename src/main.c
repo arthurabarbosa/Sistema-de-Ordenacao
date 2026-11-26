@@ -10,10 +10,8 @@ int main() {
     Metricas metricas;
 
     // Carrega duas cópias independentes para testar os dois algoritmos
-    if (!carregar_dados(ARQUIVO_PADRAO, &dadosbubble) || 
-        !carregar_dados(ARQUIVO_PADRAO, &dadosquick)) {
-        return 1;
-    }
+    carregar_dados(ARQUIVO_PADRAO, &dadosbubble);
+    carregar_dados(ARQUIVO_PADRAO, &dadosquick);
 
     // Exibe entrada original
     printf("--- Pokemons Carregados ---\n");
